@@ -9,17 +9,17 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-public class WeixinBaseTest extends BaseTestCase{
+public class WeixinBaseTest extends BaseTestCase {
 
     @Test
-    public void testSendTemplateMessage(){
+    public void testSendTemplateMessage() {
         WeixinTemplate template = new WeixinTemplate();
         template.setUrl("http://aqjy.jiuwoding.com/");
         template.setTouser("oC9pxszK2QGhu2RiFpMplu9gdQCA");//我的测试openid
 //        template.setTouser("oC9pxs4WW_1upnHjtTa9gOdLNMUI");
         template.setTopcolor("#000000");
         template.setTemplate_id("GCuAzqUH1UaAnfdK0APmqSmcuomegwebYcVvzIT4ULM");
-        Map<String,WeixinTemplateData> m = new HashMap<String,WeixinTemplateData>();
+        Map<String, WeixinTemplateData> m = new HashMap<String, WeixinTemplateData>();
         template.setData(m);
         WeixinTemplateData first = new WeixinTemplateData();
         first.setColor("#929232");
@@ -50,6 +50,12 @@ public class WeixinBaseTest extends BaseTestCase{
         remark.setColor("#929232");
         remark.setValue("备注一下");
         m.put("remark", remark);
-        WeixinBase.sendTemplateMessage(WeixinConfig.WEIXIN_APPID,WeixinConfig.WEIXIN_SECRET,template);
+        WeixinBase.sendTemplateMessage(WeixinConfig.WEIXIN_APPID, WeixinConfig.WEIXIN_SECRET, template);
+
+    }
+
+    @Test
+    public void testSendSubscribeMessage() {
+        WeixinBase.sendSubscribeMessage(WeixinConfig.WEIXIN_APPID, WeixinConfig.WEIXIN_SECRET);
     }
 }

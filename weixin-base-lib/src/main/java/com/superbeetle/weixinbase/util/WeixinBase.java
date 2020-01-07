@@ -12,6 +12,8 @@ import rxplatform.system.cache.WebCache;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -153,8 +155,9 @@ public class WeixinBase {
 
 
     /**
-     * 发送模板消息
-     * 用户需要关注公众号
+     * 发送模板消息<br/>
+     * 用户需要关注公众号<br/>
+     * 文档地址：https://developers.weixin.qq.com/doc/offiaccount/Message_Management/Template_Message_Interface.html<br/>
      *
      * @param weixinTemplate 模板内容
      * @return 状态码，详情见https://mp.weixin.qq.com/advanced/tmplmsg?action=faq&token=1345576893&lang=zh_CN
@@ -172,5 +175,41 @@ public class WeixinBase {
             return -2;
         }
         return result;
+    }
+
+    /**
+     * 一次性订阅消息<br/>
+     * h5版，一次授权只接收一次消息，鸡肋功能
+     * @return
+     */
+    public static int sendSubscribeMessage(String appId, String secret) {
+        String token = getAccessToken(appId, secret);
+        String sendUrl = String.format("https://api.weixin.qq.com/cgi-bin/message/template/subscribe?access_token=%s", token);
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("touser", "oC9pxszK2QGhu2RiFpMplu9gdQCA");
+        map.put("template_id", "5okuo91zXF43tjqzhRKfGvnzzAnSnRhWBeYNTuYLVqo");
+        map.put("url", "http://aqjy.jiuwoding.com/");
+        map.put("scene", 1000);
+        map.put("title", "您有一个任务未处理");
+
+        Map<String, Object> data = new HashMap<>();
+        Map<String, Object> content = new HashMap<>();
+        content.put("value", "未处理任务22");
+        content.put("color", "#929232");
+        data.put("content", content);
+
+        map.put("data", data);
+
+        String json = JSONObject.fromObject(map).toString();
+
+        try {
+            String resultJson = WebProxyUtils.post(sendUrl, json);
+            System.out.println(resultJson);
+        } catch (IOException e) {
+            logger.error(e);
+            return -2;
+        }
+        return 1;
     }
 }
