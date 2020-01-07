@@ -85,6 +85,4 @@
 	</bean>
 	<mvc:annotation-driven conversion-service="dateConvert" />
 	
-	<!-- 系统初始化
-	<bean class="rxplatform.system.service.impl.SystemInitService"/>-->
 </beans>

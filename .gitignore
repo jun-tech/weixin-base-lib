@@ -25,3 +25,4 @@ weixin-base-lib/weixin-base-lib.iml
 weixin-base-lib/src/main/resources/sysConfig.properties
 weixin-base-lib/target
 
+weixin-app/node_modules

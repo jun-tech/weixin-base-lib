@@ -1,8 +1,10 @@
 package com.superbeetle.weixinbase.util;
 
 import com.superbeetle.weixinbase.model.to.WeixinAccessTokenTO;
+import com.superbeetle.weixinbase.model.to.WeixinTemplate;
 import com.superbeetle.weixinbase.model.to.WeixinUserAutoGetTO;
 import net.sf.json.JSONObject;
+import org.apache.log4j.Logger;
 import rxframework.utility.cache.MCacheUtils;
 import rxframework.utility.cache.MemcacheException;
 import rxframework.utility.web.WebProxyUtils;
@@ -18,6 +20,9 @@ import java.util.Date;
  * @author Weddorn
  */
 public class WeixinBase {
+
+    private static final Logger logger = Logger.getLogger(WeixinBase.class);
+
     private static final String CacheBaseName = "wxcache";
     private static final String CacheBaseKeyName = "Accesstoken";
     private static final String CacheBaseKeyTimeName = "AccesstokenTime";
@@ -49,7 +54,7 @@ public class WeixinBase {
             //cachedClient.replace(timeKey, "");// 不能replace null，会设置失败，设置成"",get的时候 值就为null
             //cachedClient.replace(key, "");
         }
-        return getAccessToken(appId, secret, null);
+        return getAccessToken(appId, secret);
     }
 
     /**
@@ -57,8 +62,7 @@ public class WeixinBase {
      *
      * @return
      */
-    public static String getAccessToken(String appId, String secret,
-                                        org.apache.log4j.Logger logger) {
+    public static String getAccessToken(String appId, String secret) {
         String cacheKey = CacheBaseName + appId;
         String key = cacheKey + "." + CacheBaseKeyName;
         String timeKey = cacheKey + "." + CacheBaseKeyTimeName;
@@ -145,5 +149,28 @@ public class WeixinBase {
         }
 
         return "";
+    }
+
+
+    /**
+     * 发送模板消息
+     * 用户需要关注公众号
+     *
+     * @param weixinTemplate 模板内容
+     * @return 状态码，详情见https://mp.weixin.qq.com/advanced/tmplmsg?action=faq&token=1345576893&lang=zh_CN
+     */
+    public static int sendTemplateMessage(String appId, String secret, WeixinTemplate weixinTemplate) {
+        int result = 0;
+        String token = getAccessToken(appId, secret);
+        String sendUrl = String.format("https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=%s", token);
+        String json = JSONObject.fromObject(weixinTemplate).toString();
+        try {
+            String resultJson = WebProxyUtils.post(sendUrl, json);
+            System.out.println(resultJson);
+        } catch (IOException e) {
+            logger.error(e);
+            return -2;
+        }
+        return result;
     }
 }
