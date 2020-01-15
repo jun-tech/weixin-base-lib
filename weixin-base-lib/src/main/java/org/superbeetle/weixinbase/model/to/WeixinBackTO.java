@@ -1,4 +1,4 @@
-package com.superbeetle.weixinbase.model.to;
+package org.superbeetle.weixinbase.model.to;
 
 /**
  * 调用微信接口之后，返回的对象

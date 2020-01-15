@@ -1,8 +1,8 @@
-package com.superbeetle.weixinbase;
+package org.superbeetle.weixinbase;
 
 import org.junit.Before;
-import rxframework.utility.cache.MCacheUtils;
-import rxui.manager.SysParamCache;
+import org.superbeetle.framework.session.SysParamCache;
+import org.superbeetle.framework.utility.cache.MCacheUtils;
 
 public class BaseTestCase {
     @Before

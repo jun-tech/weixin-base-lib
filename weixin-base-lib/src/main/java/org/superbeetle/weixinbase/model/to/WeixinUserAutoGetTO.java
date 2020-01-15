@@ -1,4 +1,4 @@
-package com.superbeetle.weixinbase.model.to;
+package org.superbeetle.weixinbase.model.to;
 
 /**
  * 自动获取用户，通过code换取网页授权access_token

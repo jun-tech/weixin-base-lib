@@ -1,4 +1,4 @@
-package com.superbeetle.weixinbase.model.to;
+package org.superbeetle.weixinbase.model.to;
 
 /**
  * 获取jsapi 中的  ticket返回的实体

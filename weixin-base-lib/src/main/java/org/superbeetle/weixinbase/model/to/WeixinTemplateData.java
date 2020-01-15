@@ -1,4 +1,4 @@
-package com.superbeetle.weixinbase.model.to;
+package org.superbeetle.weixinbase.model.to;
 
 public class WeixinTemplateData {
     private String value;//模板显示值

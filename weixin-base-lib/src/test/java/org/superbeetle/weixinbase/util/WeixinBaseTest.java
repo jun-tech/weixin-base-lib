@@ -1,9 +1,9 @@
-package com.superbeetle.weixinbase.util;
+package org.superbeetle.weixinbase.util;
 
-import com.superbeetle.weixinbase.BaseTestCase;
-import com.superbeetle.weixinbase.constant.WeixinConfig;
-import com.superbeetle.weixinbase.model.to.WeixinTemplate;
-import com.superbeetle.weixinbase.model.to.WeixinTemplateData;
+import org.superbeetle.weixinbase.BaseTestCase;
+import org.superbeetle.weixinbase.constant.WeixinConfig;
+import org.superbeetle.weixinbase.model.to.WeixinTemplate;
+import org.superbeetle.weixinbase.model.to.WeixinTemplateData;
 import org.junit.Test;
 
 import java.util.HashMap;

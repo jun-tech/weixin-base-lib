@@ -1,6 +1,7 @@
-package com.superbeetle.weixinbase.constant;
+package org.superbeetle.weixinbase.constant;
 
-import rxframework.utility.other.PropertiesUtils;
+
+import org.superbeetle.framework.utility.other.PropertiesUtils;
 
 public class WeixinConfig {
 	// 微信APPID

@@ -1,4 +1,4 @@
-package com.superbeetle.weixinbase.controller;
+package org.superbeetle.weixinbase.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

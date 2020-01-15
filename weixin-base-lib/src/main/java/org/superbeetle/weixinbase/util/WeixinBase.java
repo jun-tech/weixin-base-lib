@@ -1,14 +1,14 @@
-package com.superbeetle.weixinbase.util;
+package org.superbeetle.weixinbase.util;
 
-import com.superbeetle.weixinbase.model.to.WeixinAccessTokenTO;
-import com.superbeetle.weixinbase.model.to.WeixinTemplate;
-import com.superbeetle.weixinbase.model.to.WeixinUserAutoGetTO;
+import org.superbeetle.framework.utility.cache.MCacheUtils;
+import org.superbeetle.framework.utility.cache.MemcacheException;
+import org.superbeetle.framework.utility.web.WebProxyUtils;
+import org.superbeetle.platform.system.cache.WebCache;
+import org.superbeetle.weixinbase.model.to.WeixinAccessTokenTO;
+import org.superbeetle.weixinbase.model.to.WeixinTemplate;
+import org.superbeetle.weixinbase.model.to.WeixinUserAutoGetTO;
 import net.sf.json.JSONObject;
 import org.apache.log4j.Logger;
-import rxframework.utility.cache.MCacheUtils;
-import rxframework.utility.cache.MemcacheException;
-import rxframework.utility.web.WebProxyUtils;
-import rxplatform.system.cache.WebCache;
 
 import java.io.IOException;
 import java.util.Date;

@@ -1,13 +1,13 @@
-package com.superbeetle.weixinbase.util;
+package org.superbeetle.weixinbase.util;
 
-import com.superbeetle.weixinbase.model.to.WeixinJsapiConfigTO;
-import com.superbeetle.weixinbase.model.to.WeixinJsapiTicketTO;
+import org.superbeetle.framework.utility.cache.MCacheUtils;
+import org.superbeetle.framework.utility.cache.MemcacheException;
+import org.superbeetle.framework.utility.web.WebProxyUtils;
+import org.superbeetle.platform.system.cache.WebCache;
+import org.superbeetle.weixinbase.model.to.WeixinJsapiConfigTO;
+import org.superbeetle.weixinbase.model.to.WeixinJsapiTicketTO;
 import net.sf.json.JSONObject;
 import org.apache.log4j.Logger;
-import rxframework.utility.cache.MCacheUtils;
-import rxframework.utility.cache.MemcacheException;
-import rxframework.utility.web.WebProxyUtils;
-import rxplatform.system.cache.WebCache;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
